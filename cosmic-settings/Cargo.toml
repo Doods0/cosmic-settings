@@ -63,7 +63,7 @@ serde = { version = "1.0.219", features = ["derive"] }
 slab = "0.4.9"
 slotmap = "1.0.7"
 static_init = "1.0.3"
-sunrise = "1.2.1"
+sunrise = "2.1.0"
 tachyonix = "0.3.1"
 timedate-zbus = { git = "https://github.com/pop-os/dbus-settings-bindings", optional = true }
 tokio = { workspace = true, features = ["fs", "io-util", "sync"] }
@@ -117,7 +117,7 @@ git = "https://github.com/AerynOS/locales-rs"
 optional = true
 
 [features]
-default = ["a11y", "dbus-config", "linux", "single-instance", "wgpu"]
+default = ["a11y", "linux", "single-instance", "wgpu"]
 gettext = ["dep:gettext-rs"]
 
 # Default features for Linux

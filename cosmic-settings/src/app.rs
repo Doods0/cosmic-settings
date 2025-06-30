@@ -231,7 +231,10 @@ impl cosmic::Application for SettingsApp {
         }
         .unwrap_or(desktop_id);
 
-        let task = app.activate_page(active_id);
+        let task = Task::batch([
+            cosmic::command::set_theme(cosmic::theme::system_preference()),
+            app.activate_page(active_id),
+        ]);
         (app, task)
     }
 
@@ -761,8 +764,9 @@ impl cosmic::Application for SettingsApp {
                 }
             }
 
-            Message::SetTheme(t) => return cosmic::command::set_theme(t),
-
+            Message::SetTheme(t) => {
+                return cosmic::command::set_theme(t);
+            }
             Message::OpenContextDrawer(page) => {
                 self.core.window.show_context = true;
                 self.active_context_page = Some(page);
